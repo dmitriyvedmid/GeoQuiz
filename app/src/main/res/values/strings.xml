@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+    <string name="text_true">Правда</string>
+    <string name="text_false">Ложь</string>
+    <string name="congratulations_toast">Поздравляем в прошли игру! Кличество правильных ответов: </string>
+    <string name="next_question_text">Следующий вопрос</string>
+    <string name="question1">Тихий океан больше Атлантического</string>
+    <string name="question2">Карпаты высотой более 3000 метров</string>
+    <string name="question3">Амазонка - самая длинная река Американских материков</string>
+    <string name="question4">Источник Нила находится в Египте</string>
+    <string name="question5">Байкал - старейшее и глубочайшее озеро</string>
+    <string name="cheat_text">Подсказка</string>
+    <string name="assurance_request">Вы уверены?</string>
+    <string name="show_answer_text">Показать ответ</string>
+    <string name="cheat_answer_true">Это правда</string>
+    <string name="cheat_answer_false">Это ложь</string>
+    <string name="end_test_btn_text">Закончить тест</string>
+    <string name="judgment_toast">cheater</string>
+</resources>

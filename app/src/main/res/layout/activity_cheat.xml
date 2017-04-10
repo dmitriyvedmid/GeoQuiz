@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:text="@string/assurance_request"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/question_text_size"
+        android:id="@+id/answer_textview"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="40dp"
+            android:background="@android:color/white"
+            android:text="@string/show_answer_text"
+            android:textSize="@dimen/button_text_size"
+            android:elevation="0dp"
+            android:id="@+id/show_answer_btn"
+            />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="24dp"
+        android:textSize="@dimen/question_text_size"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/positive_button"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="20dp"
+            android:layout_weight="0.5"
+            android:text="@string/text_true"
+            android:textSize="@dimen/button_text_size"/>
+
+        <Button
+            android:id="@+id/negative_button"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="20dp"
+            android:layout_weight="0.5"
+            android:text="@string/text_false"
+            android:textSize="@dimen/button_text_size"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/next_question_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="20dp"
+            android:text="@string/next_question_text"
+            android:textSize="@dimen/button_text_size"/>
+
+        <Button
+            android:id="@+id/cheat_button"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="20dp"
+            android:background="@android:color/white"
+            android:text="@string/cheat_text"
+            android:textSize="@dimen/button_text_size"/>
+    </LinearLayout>
+</LinearLayout>
