@@ -22,8 +22,6 @@ public class CheatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cheat);
 
-        System.out.println("hello");
-
         answerTV=(TextView)findViewById(R.id.answer_textview);
         showAnswerBtn=(Button)findViewById(R.id.show_answer_btn);
 
