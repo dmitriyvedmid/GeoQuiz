@@ -16,4 +16,5 @@
     <string name="cheat_answer_false">Это ложь</string>
     <string name="end_test_btn_text">Закончить тест</string>
     <string name="judgment_toast">cheater</string>
+    <string name="restart">Начать заново</string>
 </resources>

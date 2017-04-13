@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 public class CheatActivity extends AppCompatActivity {
 
-    TextView answerTV;
-    Button showAnswerBtn;
+    TextView mAnswerTextView;
+    Button mShowAnswer;
     Boolean mAnswerIsTrue;
     public static final String EXTRA_ANSWER_IS_TRUE = "com.dmitr.geoquiz.answer_is_true";
     public static final String EXTRA_ANSWER_SHOWN = "com.dmitr.geoquiz.answer_shown";
@@ -22,14 +22,13 @@ public class CheatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cheat);
 
-        answerTV=(TextView)findViewById(R.id.answer_textview);
-        showAnswerBtn=(Button)findViewById(R.id.show_answer_btn);
-
+        mAnswerTextView =(TextView)findViewById(R.id.answer_textview);
+        mShowAnswer =(Button)findViewById(R.id.show_answer_btn);
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
 
         setAnswerShownResult(true);
 
-        showAnswerBtn.setOnClickListener(new View.OnClickListener(){
+        mShowAnswer.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if (mAnswerIsTrue)
@@ -54,5 +53,4 @@ public class CheatActivity extends AppCompatActivity {
         data.putExtra(EXTRA_ANSWER_SHOWN, isAnswerShown);
         setResult(RESULT_OK, data);
     }
-
 }

@@ -3,11 +3,13 @@ package com.example.dmitriyvedmid.geoquiz;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,6 +27,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     int mCorrectCount;
     int mCheatsUsed;
     private boolean mIsCheater;
+    private boolean mIsCurrentCheater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +83,14 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 boolean answerIsTrue = questions[iterator].isAnswerTrue();
                 Intent i = CheatActivity.newIntent(QuizActivity.this, answerIsTrue);
                 startActivityForResult(i, REQUEST_CODE_CHEAT);
+                mIsCurrentCheater=true;
                 break;
         }
-
     }
 
     public void updateQuestion() {
+        mIsCurrentCheater=false;
+        mNextQuestionButton.setOnClickListener(this);
         mTrueButton.setBackgroundColor(Color.WHITE);
         mFalseButton.setBackgroundColor(Color.WHITE);
         if (iterator == questions.length - 1) {
@@ -101,7 +106,25 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             mCheatButton.setClickable(true);
         } else {
             mNextQuestionButton.setClickable(false);
-            mNextQuestionButton.setAlpha(0);
+            mNextQuestionButton.setText(R.string.restart);
+            mNextQuestionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(v.getId()==R.id.next_question_Button){
+                        mCheatsUsed = 0;
+                        mCorrectCount = 0;
+                        iterator = 0;
+                        mFalseButton.setClickable(true);
+                        mTrueButton.setClickable(true);
+                        mCheatButton.setClickable(true);
+                        mFalseButton.setAlpha(1);
+                        mTrueButton.setAlpha(1);
+                        mCheatButton.setAlpha(1);
+                        mNextQuestionButton.setText(R.string.next_question_text);
+                        updateQuestion();
+                    }
+                }
+            });
             mFalseButton.setClickable(false);
             mFalseButton.setAlpha(0);
             mTrueButton.setClickable(false);
@@ -129,7 +152,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     public void checkAnswer(boolean userPressed, Button pressedButton) {
         mFalseButton.setClickable(false);
         mTrueButton.setClickable(false);
-        if (mIsCheater) {
+        if (mIsCurrentCheater) {
             pressedButton.setBackgroundColor(Color.BLUE);
         } else {
             if (questions[iterator].isAnswerTrue() == userPressed) {
